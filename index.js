@@ -22,11 +22,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function(req,res){
-        res.redirect('/space')
+        res.redirect('/letsRead')
 })
 
-app.get('/space', spaceRoutes.landing);
-app.post('/space', spaceRoutes.register);
+app.get('/letsRead', spaceRoutes.landing);
+// app.post('/space', spaceRoutes.register);
+// app.get('/letsRead', spaceRoutes.explore)
+app.get('/admin', spaceRoutes.admin)
+app.post('/admin', spaceRoutes.admin)
+app.get('/explore', spaceRoutes.readMore)
+app.post('/explore', spaceRoutes.readMore)
 
 
 
