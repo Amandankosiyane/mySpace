@@ -1,53 +1,83 @@
 <!DOCTYPE html>
 <html>
 
-        <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/solar/bootstrap.min.css" rel="stylesheet" integrity="sha384-GC77SCz5O11gVtXl0sSfbQYEWSSznn1wPDHgL1BGUTFU9iEoUrG4IOJa5CBVY8kR" crossorigin="anonymous">
-                <title>Lets Explore</title>
-                <style media="screen">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/solar/bootstrap.min.css" rel="stylesheet" integrity="sha384-GC77SCz5O11gVtXl0sSfbQYEWSSznn1wPDHgL1BGUTFU9iEoUrG4IOJa5CBVY8kR" crossorigin="anonymous">
+        <title>Lets Explore</title>
+        <style media="screen">
+                #lists {
 
-li{
-        list-style: none;
-        border-color: solid black;
-        /*width: 25em;*/
-        border-style: solid;
-        text-align: center;
-        margin-bottom: 0.5em;
-        /*display: inline-block;*/
-        /*border-radius: 50px*/
+                        border-color: solid black;
+                        box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+                        border-style: solid;
+                        /*width: 20em;*/
+                        height: 45em;
+                        margin: auto;
+                }
+
+                li {
+                        list-style: none;
+                        text-align: center;
+                        margin: 1.5em;
+                }
+
+                h1 {
+                        text-align: center;
+                        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+                }
+
+                #img {
+                        position: relative;
+                        width: 120px;
+                        height: 120px;
+                        margin: auto;
+                }
+                #myInput {
+  background-image: url('https://static.tonicdev.net/assets/images/search.svg');
+  background-position:  6px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20em;
+  height: 28px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
-h1{
-        text-align: center;
-        text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-}
-                </style>
-        </head>
-        <body>
-                <h1><b><u>Let us read</u></b></h1>
-                <br><br><br>
-                <div class="container">
-    <div class="row">
-            <ul class="list-group list-group-horizontal">
-            {{#each reg}}
-        <div class="col-sm-4">
-                            <li class="list-group-item" name="tittle"><b><i>Tittle:</i></b><b> {{this.tittle}}</b></li>
-                          <li class="list-group-item"name="author"><b><i>Author:</i></b>  {{this.author}}</li>
-                 <li> <img class="list-group-item" src="{{this.image}}" alt="..." name="image"></li>
-             <li class="list-group-item" name="description"><b><i>Summary:</i></b> {{this.description}}</li>
-             <!-- <li><form class="" action="/explore" method="post">
-                     <button type="submit" class="btn btn-danger" value="{{tittle}}">Read more</button>
-             </form>
-</li> -->
-      </div>
-    {{/each}}
-</ul>
-</div>
-</div>
+        </style>
+</head>
+
+<body>
+        <h1><b><u>Let us read</u></b></h1>
+        <br><br><br>
+        <div class="container">
+                <div class="row">
+                        <form class="" action="" method="post">
+                                <div class="form-group">
+                                        <label for="tittle"><b><i>Filter:</i></b></label>
+                                        <input type="text" class="form-control" name="categoryFilter" placeholder="enter the book tittle">
+                                        <button type="submit" class="btn btn-danger">Filter</button>
+
+                                </div>
+                        </form>
+                                          <ul class="list-group list-group-vertical" name="myUL">
+                                {{#each reg}}
+                                        <div class="col-sm-3" id="lists" name="myLI">
+                                                <li class="list-group-item" name="tittle"><b><i>Tittle:</i></b><b> {{this.tittle}}</b></li>
+                                                <li class="list-group-item" name="author"><b><i>Author:</i></b> {{this.author}}</li>
+                                                <li> <img class="list-group-item" src="{{this.image}}" alt="..." name="image" id="img"></li>
+                                                <li class="list-group-item" name="description"><b><i>Summary:</i></b> {{this.description}}</li>
+                                                <li class="list-group-item" name="category"><b><i>Category:</i></b> {{this.category}}</li>
+                                        </div>
+                                {{/each}}
+                        </ul>
+                </div>
+        </div>
 
 
 </html>

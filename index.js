@@ -21,17 +21,16 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 app.get('/', function(req,res){
-        res.redirect('/letsRead')
+        res.redirect('/explore')
 })
 
-app.get('/letsRead', spaceRoutes.landing);
-// app.post('/space', spaceRoutes.register);
-// app.get('/letsRead', spaceRoutes.explore)
+app.get('/explore', spaceRoutes.index);
 app.get('/admin', spaceRoutes.admin)
 app.post('/admin', spaceRoutes.admin)
-app.get('/explore', spaceRoutes.readMore)
-app.post('/explore', spaceRoutes.readMore)
+app.get('/explore', spaceRoutes.allBooks)
+app.post('/explore', spaceRoutes.allBooks)
 
 
 
